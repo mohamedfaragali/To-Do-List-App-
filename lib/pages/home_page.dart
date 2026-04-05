@@ -16,15 +16,37 @@ class _HomePageState extends State<HomePage> {
 
   void checkBoxChanged(bool? value, int index) {
     setState(() {
-      toDoList[index][1] = value;
+      toDoList[index][1] = !toDoList[index][1];
     });
+  }
+
+  void createNewTask() {
+    showAboutDialog(
+      context: context,
+      builder: (context) {
+        return DialogBox();
+        // Do something with the value
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.yellow[200],
-      appBar: AppBar(title: Text("To Do"), elevation: 0),
+      appBar: AppBar(
+        title: Text(
+          "To Do",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.yellow,
+        centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewTask,
+        child: Icon(Icons.add),
+      ),
       body: ListView.builder(
         itemCount: toDoList.length,
         itemBuilder: (context, index) {
