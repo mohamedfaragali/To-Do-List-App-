@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/Utill/todo_tile.dart';
+import 'package:todo_app/Utill/dialog_box.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void createNewTask() {
-    showAboutDialog(
+    showDialog(
       context: context,
       builder: (context) {
         return DialogBox();
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[200],
+      backgroundColor: Colors.yellow,
       appBar: AppBar(
         title: Text(
           "To Do",
