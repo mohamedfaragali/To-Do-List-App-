@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Bottons extends StatelessWidget {
   final String text;
-  VoidCallback onPressed;
-  Bottons({super.key, required this.text, required this.onPressed});
+  final VoidCallback onPressed;
+  const Bottons({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
