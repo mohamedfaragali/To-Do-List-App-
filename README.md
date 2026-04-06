@@ -1,17 +1,20 @@
-# todo_app
+# To-DO List app 
 
-A new Flutter project.
+This is my very first project using flutter. 
 
-## Getting Started
+## How to use
 
-This project is a starting point for a Flutter application.
+This project is so simple, it contain just one page which is the home page, you can add a new task using the adding botton and just click save to save it.
+when you need to delet, you have two options 1st to delet specific task by sliding it or 2nd via the clear botton which clear all the tasks.
 
-A few resources to get you started if this is your first Flutter project:
+## Used Technologies
+The project is powerd by flutter fracmwork and dart as a programming language.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+used libraries:
+- 'package:hive_flutter/hive_flutter.dart'
+- 'package:flutter/material.dart'
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+

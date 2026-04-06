@@ -9,7 +9,7 @@ class Bottons extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      color: Colors.yellow[500],
+      color: const Color.fromARGB(255, 8, 75, 192),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Text(text),
     );
