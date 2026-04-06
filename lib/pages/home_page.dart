@@ -64,7 +64,6 @@ class _HomePageState extends State<HomePage> {
           onSave: saveNewTask,
           onCancel: () => Navigator.of(context).pop(),
         );
-        // Do something with the value
       },
     );
     db.updateDataBase();
@@ -74,6 +73,13 @@ class _HomePageState extends State<HomePage> {
   void deleteTask(int index) {
     setState(() {
       db.toDoList.removeAt(index);
+    });
+  }
+
+  // delete all tasks
+  void deleteAllTasks() {
+    setState(() {
+      db.ClearTasks();
     });
   }
 
@@ -90,9 +96,19 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.yellow,
         centerTitle: true,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: createNewTask,
-        child: Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: deleteAllTasks,
+            child: const Icon(Icons.delete_sweep),
+          ),
+          const SizedBox(width: 16),
+          FloatingActionButton(
+            onPressed: createNewTask,
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: db.toDoList.length,

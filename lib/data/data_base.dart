@@ -22,4 +22,10 @@ class ToDoDataBase {
   void updateDataBase() {
     _myBox.put("TODOLIST", toDoList);
   }
+
+  // clear all tasks
+  void ClearTasks() {
+    toDoList.clear();
+    updateDataBase();
+  }
 }
