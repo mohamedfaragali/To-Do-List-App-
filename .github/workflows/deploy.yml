@@ -1,28 +1,29 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4  
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          node-version: '14'
+          channel: 'stable'
 
       - name: Install dependencies
-        run: npm install
+        run: flutter pub get
 
-      - name: Build the project
-        run: npm run build
+      - name: Build Web
+        run: flutter build web --release --base-href /To-Do-List-App-/
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4 
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: build/web
